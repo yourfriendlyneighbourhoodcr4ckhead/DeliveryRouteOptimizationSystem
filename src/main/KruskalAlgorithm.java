@@ -15,7 +15,6 @@ public class KruskalAlgorithm {
         this.graph = graph;
     }
 
-
     // Union-Find data structure for cycle detection
     static class UnionFind {
         private Map<String, String> parent;
@@ -57,7 +56,7 @@ public class KruskalAlgorithm {
     }
 
     // Kruskal's algorithm to find the Minimum Spanning Tree (MST)
-    public static List<Graph.Edge> kruskal(Graph graph) {
+    public List<Graph.Edge> optimizeNetwork() {
         List<Graph.Edge> mst = new ArrayList<>();
         List<Graph.Edge> edges = new ArrayList<>();
         
@@ -69,7 +68,7 @@ public class KruskalAlgorithm {
         }
 
         // Step 2: Sort edges by weight (distance or delivery time)
-        edges.sort(Comparator.comparingDouble(edge -> edge.weight));
+        edges.sort(Comparator.comparingDouble(edge -> edge.getWeight()));
 
         // Step 3: Initialize Union-Find structure
         UnionFind uf = new UnionFind();
@@ -79,8 +78,8 @@ public class KruskalAlgorithm {
 
         // Step 4: Process edges in sorted order and apply Union-Find to avoid cycles
         for (Graph.Edge edge : edges) {
-            String from = edge.to; // 'from' is stored in 'to' as the destination node in Edge
-            String to = edge.to;
+            String from = edge.getFrom();
+            String to = edge.getTo();
 
             // If the nodes are in different sets, add the edge to MST
             if (!uf.find(from).equals(uf.find(to))) {
@@ -90,30 +89,5 @@ public class KruskalAlgorithm {
         }
 
         return mst;
-    }
-
-    public static void main(String[] args) {
-        // Create the graph
-        Graph graph = new Graph();
-        graph.addNode("A");
-        graph.addNode("B");
-        graph.addNode("C");
-        graph.addNode("D");
-
-        // Add edges (roads with weights)
-        graph.addEdge("A", "B", 4.5);
-        graph.addEdge("A", "C", 2.0);
-        graph.addEdge("B", "C", 1.5);
-        graph.addEdge("C", "D", 3.0);
-        graph.addEdge("B", "D", 5.0);
-
-        // Run Kruskal's algorithm to find the MST
-        List<Graph.Edge> mst = kruskal(graph);
-
-        // Output the MST (Optimized delivery routes)
-        System.out.println("Optimized delivery network (Minimum Spanning Tree):");
-        for (Graph.Edge edge : mst) {
-            System.out.println(edge.to + " -> " + edge.weight);
-        }
     }
 }

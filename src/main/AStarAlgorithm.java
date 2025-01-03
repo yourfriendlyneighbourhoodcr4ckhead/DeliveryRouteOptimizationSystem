@@ -17,13 +17,12 @@ public class AStarAlgorithm {
     /**
      * Finds the shortest path between two nodes using A* algorithm.
      * 
-     * @param graph      the graph to traverse
      * @param start      the starting node
      * @param goal       the target node
      * @param heuristic  a map of heuristic values for each node
      * @return a list representing the shortest path
      */
-    public static List<String> findShortestPath(Graph graph, String start, String goal, Map<String, Double> heuristic) {
+    public List<String> findShortestPath(String start, String goal, Map<String, Double> heuristic) {
         Map<String, Double> gScore = new HashMap<>();
         Map<String, Double> fScore = new HashMap<>();
         Map<String, String> cameFrom = new HashMap<>();
