@@ -3,6 +3,7 @@
         "src"
     ],
     "java.project.referencedLibraries": [
-        "libs/json-20241224.jar"
+        "libs/junit-jupiter-api-5.11.4.jar",
+        "/Users/ranjith/java/DeliveryRouteOptimizationSystem/libs/json-20241224.jar"
     ]
 }
