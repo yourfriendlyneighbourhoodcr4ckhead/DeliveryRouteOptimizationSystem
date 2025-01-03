@@ -32,13 +32,16 @@ public class TestAStar {
         heuristic.put("D", 1.0);
         heuristic.put("E", 0.0); // Goal node has a heuristic of 0
 
-        // Step 3: Find the shortest path using A* algorithm
+        // Step 3: Create AStarAlgorithm instance
+        AStarAlgorithm aStarAlgorithm = new AStarAlgorithm(graph);
+
+        // Step 4: Find the shortest path using A* algorithm
         String startNode = "A";
         String goalNode = "E";
 
-        List<String> shortestPath = AStarAlgorithm.findShortestPath(graph, startNode, goalNode, heuristic);
+        List<String> shortestPath = aStarAlgorithm.findShortestPath(startNode, goalNode, heuristic);
 
-        // Step 4: Print the result
+        // Step 5: Print the result
         System.out.println("Shortest Path from " + startNode + " to " + goalNode + ": " + shortestPath);
     }
 }
