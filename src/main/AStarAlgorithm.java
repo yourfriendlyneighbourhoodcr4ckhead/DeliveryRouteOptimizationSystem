@@ -7,6 +7,13 @@ import java.util.*;
  */
 public class AStarAlgorithm {
 
+    private Graph graph;
+
+    // Constructor that accepts a Graph object
+    public AStarAlgorithm(Graph graph) {
+        this.graph = graph;
+    }
+
     /**
      * Finds the shortest path between two nodes using A* algorithm.
      * 

@@ -8,6 +8,14 @@ import java.util.*;
  */
 public class KruskalAlgorithm {
 
+    private Graph graph;
+
+    // Constructor that accepts a Graph object
+    public KruskalAlgorithm(Graph graph) {
+        this.graph = graph;
+    }
+
+
     // Union-Find data structure for cycle detection
     static class UnionFind {
         private Map<String, String> parent;
